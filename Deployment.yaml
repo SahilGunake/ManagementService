@@ -15,8 +15,8 @@ spec:
         app: ManagementService
     spec:
       containers:
-      - name: DNAzureACR021
-        image: dnazurecontainerrepo
+      - name: dnazureacr021
+        image: dnazureacr021.azurecr.io/dnazurecontainerrepo:latest
         ports:
         - containerPort:8080
       imagePullSecrets:
