@@ -1,0 +1,34 @@
+apiVersion: apps/v1
+kind:Deployment
+metadata:
+  name: managementservice-deployment
+  labels:
+    app: ManagementService
+spec:
+  replicas: 1
+  selector:
+    matchLabels: 
+      app: ManagementService
+  template:
+    metadata: 
+      labels:
+        app: ManagementService
+    spec:
+      containers:
+      - name: #containerename
+        image: #imagename
+        ports:
+        - containerPort:8080
+      imagePullSecrets:
+      - name: webapisvcsecret
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: #servicename
+spec:
+  type: LoadBalancer
+  ports:
+  - port: 80
+  selector:
+      app: ManagementService
